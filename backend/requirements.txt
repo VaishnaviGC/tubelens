@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+youtube-transcript-api
+python-dotenv
+groq
+openai-whisper
+yt-dlp
+torch
