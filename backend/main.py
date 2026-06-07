@@ -9,7 +9,7 @@ import yt_dlp
 import whisper
 
 load_dotenv()
-client = Groq(api_key=os.getenv("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"))
+client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 whisper_model = whisper.load_model("base")
 
 app = FastAPI()
