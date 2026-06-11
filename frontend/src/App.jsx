@@ -2,10 +2,6 @@ import { useState, useRef, useEffect } from "react";
 import ReactMarkdown from "react-markdown";
 import "./index.css";
 
-import { useState, useRef, useEffect } from "react";
-import ReactMarkdown from "react-markdown";
-import "./index.css";
-
 const API_URL = "https://tubelens-production.up.railway.app";
 
 function extractVideoId(url) {
