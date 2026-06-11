@@ -2,6 +2,12 @@ import { useState, useRef, useEffect } from "react";
 import ReactMarkdown from "react-markdown";
 import "./index.css";
 
+import { useState, useRef, useEffect } from "react";
+import ReactMarkdown from "react-markdown";
+import "./index.css";
+
+const API_URL = "https://tubelens-production.up.railway.app";
+
 function extractVideoId(url) {
   const patterns = [
     /(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([a-zA-Z0-9_-]{11})/,
@@ -176,7 +182,7 @@ export default function App() {
     if (!vid) { setError("Invalid YouTube URL."); return; }
     setVideoId(vid); setLoading(true);
     try {
-      const res = await fetch("http://localhost:8000/summarize", {
+      const res = await fetch('${API_URL}/summarize', {
         method: "POST", headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ video_id: vid }),
       });
@@ -193,7 +199,7 @@ export default function App() {
     const newHistory = [...chatHistory, { role: "user", content: userMsg }];
     setChatHistory(newHistory); setChatLoading(true);
     try {
-      const res = await fetch("http://localhost:8000/chat", {
+      const res = await fetch('${API_URL}/chat', {
         method: "POST", headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ video_id: videoId, message: userMsg, history: chatHistory, transcript }),
       });
@@ -208,7 +214,7 @@ export default function App() {
   async function handleStudy() {
     setStudyData(null); setStudyLoading(true);
     try {
-      const res = await fetch("http://localhost:8000/study", {
+      const res = await fetch('${API_URL}/study', {
         method: "POST", headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ transcript }),
       });
