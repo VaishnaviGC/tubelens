@@ -127,6 +127,9 @@ tubelens/
 ![Summary](screenshots/summary.png.png)
 
 
+![Chat](screenshots/chat.png.png)
+
+
 ![Study Mode](screenshots/study2.png.png)
 
 
